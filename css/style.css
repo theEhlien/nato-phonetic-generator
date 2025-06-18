@@ -1,7 +1,10 @@
 body {
+    --primary-color: hsl(32, 72%, 32%);
+
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #292929;
 }
 
 .wrapper {
@@ -10,4 +13,16 @@ body {
 
 #ovrd-footer {
     padding: 10px;
+}
+
+.button.is-primary {
+    background-color: var(--primary-color);
+}
+
+.has-background-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.is-primary.input, .is-primary.textarea{
+    border-color: var(--primary-color);
 }

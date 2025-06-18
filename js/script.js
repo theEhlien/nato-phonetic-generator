@@ -34,6 +34,19 @@ let alphabet = {
   "z": "zulu",
 };
 
+let digits = {
+    "0": "Zero",
+    "1": "One",
+    "2": "Two",
+    "3": "Three",
+    "4": "Four",
+    "5": "Five",
+    "6": "Six",
+    "7": "Seven",
+    "8": "Eight",
+    "9": "Nine",
+};
+
 convertBtn.addEventListener("click", convert);
 clearBtn.addEventListener("click", clear);
 
@@ -59,16 +72,22 @@ function convert() {
             if (letter in alphabet) {
                 firstLetter = alphabet[letter].charAt(0).bold().toUpperCase().fontcolor("#00d1b2");
                 convertedText.innerHTML += `${firstLetter}${alphabet[letter].slice(1)} `;
+            } else if (letter in digits) {
+                convertedText.innerHTML += `${digits[letter]} `;
             } else if (letter === " ") {
-                convertedText.innerHTML += ` (space) `;
+                convertedText.innerHTML += ` `;
             } else if (letter === "@") {
-                convertedText.innerHTML += ` (at) `;
+                convertedText.innerHTML += ` (@) `;
             } else if (letter === "-") {
-                convertedText.innerHTML += ` (hyphen) `;
+                if ((textToConvert.charAt(index-1).toLowerCase() in alphabet) && (textToConvert.charAt(index+1).toLowerCase() in alphabet)) {
+                    convertedText.innerHTML += ` (DASH) `;
+                } else {
+                    convertedText.innerHTML += ` (TACK) `;
+                }
             } else if (letter === "_") {
-                convertedText.innerHTML += ` (underscore) `;
+                convertedText.innerHTML += ` (_) `;
             } else if (letter === ".") {
-                convertedText.innerHTML += ` (dot) `;
+                convertedText.innerHTML += ` (DOT) `;
             } else {
                 convertedText.innerHTML += `${letter}`;
             }
