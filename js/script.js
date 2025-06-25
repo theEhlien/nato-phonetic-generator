@@ -75,14 +75,14 @@ function convert() {
             } else if (letter in digits) {
                 convertedText.innerHTML += `${digits[letter]} `;
             } else if (letter === " ") {
-                convertedText.innerHTML += ` `;
+                convertedText.innerHTML += ` (SPACE) `;
             } else if (letter === "@") {
                 convertedText.innerHTML += ` (@) `;
             } else if (letter === "-") {
-                if ((textToConvert.charAt(index-1).toLowerCase() in alphabet) && (textToConvert.charAt(index+1).toLowerCase() in alphabet)) {
-                    convertedText.innerHTML += ` (DASH) `;
-                } else {
+                if ((textToConvert.charAt(index-1) in digits) && (textToConvert.charAt(index+1) in digits)) {
                     convertedText.innerHTML += ` (TACK) `;
+                } else {
+                    convertedText.innerHTML += ` (DASH) `;
                 }
             } else if (letter === "_") {
                 convertedText.innerHTML += ` (_) `;
